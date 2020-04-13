@@ -1,0 +1,334 @@
+@import config
+
+// TEMP STYLES
+
+.hide
+    display: none !important
+
+// COMMON STYLES
+
+#app
+    min-height: 100vh
+    transform: translateZ(0)
+    display: flex
+    align-items: center
+
+.icon
+    display: inline-block
+    width: 20px
+    height: 20px
+    &-search
+        background: url(../img/icons/search.svg) center / contain no-repeat
+    &-more
+        background: url(../img/icons/more.svg) center / contain no-repeat
+    &-settings
+        background: url(../img/icons/settings.svg) center / contain no-repeat
+    &-landscape
+        background: url(../img/icons/landscape.svg) center / contain no-repeat
+    &-apps
+        background: url(../img/icons/apps.svg) center / contain no-repeat
+    &-star
+        background: url(../img/icons/star.svg) center / contain no-repeat
+    &-close
+        background: url(../img/icons/close.svg) center / contain no-repeat
+    &-photos
+        background: url(../img/icons/photos.svg) center / contain no-repeat
+    &-colors
+        background: url(../img/icons/colors.svg) center / contain no-repeat
+    &-gallery
+        background: url(../img/icons/gallery.svg) center / contain no-repeat
+
+.x-radio
+    display: flex
+    align-items: center
+    user-select: none
+    input
+        display: none
+    &-box
+        width: 16px
+        height: 16px
+        border: 2px solid $accent
+        border-radius: 50%
+        display: flex
+        align-items: center
+        justify-content: center
+        margin-right: 10px
+    &-title
+        font-size: 13px
+    &:hover 
+        transition: all .3s
+        opacity: 0.8
+        cursor: pointer
+
+.x-radio input:checked ~ .x-radio-box:after
+    content: ''
+    display: block
+    width: 8px
+    height: 8px
+    background-color: $accent
+    border-radius: 50%
+
+label.x-checkbox-label
+    cursor: pointer
+    .x-checkbox-input
+        display: none
+    .x-checkbox-box
+        width: 28px
+        height: 12px
+        border-radius: 12px
+        background-color: #bdc1c6
+        position: relative
+        .x-checkbox-circle
+            width: 16px
+            height: 16px
+            border-radius: 50%
+            background-color: #ffffff
+            position: absolute
+            top: 50%
+            left: 0px
+            transition: all .3s
+            margin-top: -8px
+            box-shadow: 0 1px 3px 0 rgba(#000, 0.4)
+
+label.x-checkbox-label .x-checkbox-input:checked ~ .x-checkbox-box
+    background-color: #9db4f2
+
+label.x-checkbox-label .x-checkbox-input:checked ~ .x-checkbox-box .x-checkbox-circle
+    background-color: $accent
+    left: 14px
+
+
+// MAIN SCREEN
+
+.main-box
+    position: relative
+    // left: calc( 50% - 300px )
+    width: 45%
+    margin: 0 auto
+    @media screen and ( max-width: 768px )
+        width: 70%
+        
+
+.search-bar
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-bottom: 40px
+    input
+        width: 555px
+        height: 45px
+        line-height: 45px
+        padding: 0 5px
+        border: none
+        background-color: transparent
+        font-size: 14px
+    &.light
+        background: rgba(#fff, 0.8)
+    &.dark
+        background: rgba(#000, 0.5)
+        input
+            color: #ffffff
+        svg
+            fill: #ffffff
+    &.rounded-searchbar
+        border-radius: 45px
+    .icon
+        width: 45px
+        @media screen and ( max-width: 768px )
+            margin-left: 10px
+
+.show-settings-btn
+    position: absolute
+    bottom: 25px
+    right: 25px
+    background-color: $light
+    border-radius: 50%
+    display: flex
+    padding: 2px
+    cursor: pointer
+    transition: background-color .25s ease
+    &:hover
+        background-color: darken($light, 15%)
+
+// SETTINGS MODAL
+
+.settings-modal
+    position: absolute
+    width: calc( 100vw - 50px )
+    height: calc( 100vh - 50px )
+    top: 25px
+    left: 25px
+    opacity: 0
+    background-color: $light
+    transform: translateY(-150%)
+    transition: transform .3s, opacity 1s
+    will-change: transform
+    z-index: 100
+    &.show
+        transform: translateY(0)
+        opacity: 1
+    &-head
+        display: flex
+        align-items: center
+        height: 60px
+        padding: 20px 40px
+        border-bottom: 1px solid #ececec
+        .icon-close
+            position: absolute
+            right: 20px
+            &:hover 
+                transition: all .3s
+                opacity: 0.8
+                cursor: pointer
+    &-menu
+        display: flex
+        align-items: center
+        &-item
+            display: flex
+            align-items: center
+            margin-right: 30px
+            user-select: none
+            &:hover
+                transition: all .3s
+                opacity: 0.8
+                cursor: pointer
+            .icon
+                width: 14px
+                height: 14px
+                margin-right: 8px
+            &-text 
+                color: #666666
+                font-size: 14px
+    &-view
+        height: calc( 100vh - 50px - 60px )
+        overflow: auto
+        > div 
+            position: absolute
+            visibility: hidden
+            &.a
+                position: static
+                visibility: visible
+
+.general-settings-view
+    .container
+        width: 60%
+        margin: 0 auto
+        padding-top: 10px
+    .setting-block-title
+        margin: 30px 0 15px
+        color: #3d3d3d
+        font-weight: bold
+    .setting-block
+        background: #ffffff
+        box-shadow: 0 0 6px rgba(#000, 0.1)
+    .setting-item
+        min-height: 60px
+        padding: 0 30px
+        border-bottom: 1px solid #eee
+        display: flex
+        align-items: center
+        justify-content: space-between
+        &-title
+            font-size: 12px
+        &-text 
+            font-size: 13px
+            line-height: 1.7
+    select 
+        width: 200px
+        height: 32px
+        border: none
+        padding: 0 10px
+        background-color: #f3f3f3
+        font-size: 12px
+        -webkit-appearance: none
+    .radio-boxes
+        display: flex
+        align-items: center
+        .x-radio
+            margin-left: 40px
+
+.wp-settings-view
+    display: flex
+    height: 100%
+    .left-part.wp-menu
+        position: relative
+        width: 40%
+        border-right: 1px solid #ececec
+        padding: 30px 25px 0 40px
+        .wp-menu-item
+            display: flex
+            align-items: center
+            border-bottom: 2px solid transparent
+            user-select: none
+            margin-bottom: 10px
+            height: 40px
+            &:hover 
+                transition: all .3s
+                opacity: 0.8
+                cursor: pointer
+            &.a
+                color: $accent
+                .icon.icon-photos
+                    background: url(../img/icons/photos.svg) center / contain no-repeat
+                .icon.icon-colors
+                    background: url(../img/icons/colors.svg) center / contain no-repeat
+                .icon.icon-gallery
+                    background: url(../img/icons/gallery.svg) center / contain no-repeat
+        .wp-menu-item-text
+            color: #a1abb9
+            font-size: 14px
+        .icon
+            width: 25px
+            height: 25px
+            margin-right: 10px
+    .right-part.wp-view
+        width: 60%
+        position: relative
+        padding: 20px 30px
+    .previews
+        display: flex
+        flex-wrap: wrap
+        .preview-box
+            width: 20%
+            padding: 0 5px 5px 0
+            overflow: hidden
+        .preview
+            display: flex
+            align-items: center
+            justify-content: center
+            background-size: cover
+            background-position: center
+            width: 100%
+            height: 120px
+            position: relative
+            overflow: hidden
+            .category-name
+                display: block
+                width: 100%
+                height: 100%
+                line-height: 120px
+                text-transform: uppercase
+                color: #ffffff
+                font-size: 13px
+                font-weight: bold
+                background: rgba(#000, 0.2)
+                text-align: center
+
+.photos-view
+    .wp-search
+        display: flex
+        align-items: center
+        background-color: #ffffff
+        border: 1px solid #ced3d9
+        margin-bottom: 20px
+        .icon-search
+            width: 34px
+            height: 14px
+        input
+            width: 100%
+            height: 30px
+            line-height: 30px
+            padding: 0 10px
+            border: none
+            background-color: transparent
+            color: #666666

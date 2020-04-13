@@ -1,0 +1,72 @@
+$accent: #1973e8
+$light: #fafafa
+$fontsize: 14px
+$textcolor: #333333
+$roboto: Roboto, sans-serif
+
+// FONT LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+    @font-face
+        font-family: $fname
+        font-style: $fstyle
+        font-weight: $fweight
+        font-display: swap
+        src: local($fname), url($furl) format('woff2')
+
+@include font('Roboto', normal, 400, '../fonts/roboto-regular.woff2')
+@include font('Roboto', normal, 700, '../fonts/roboto-bold.woff2')
+
+::placeholder
+    color: #666666
+
+::selection
+    background-color: $accent
+    color: #ffffff
+
+::-webkit-scrollbar
+    width: 0
+    height: 0
+
+::-webkit-scrollbar-button
+    background-repeat: no-repeat
+    width: 0
+    height: 0
+
+::-webkit-scrollbar-thumb
+    border-radius: 50px
+    background-color: #949494
+    opacity: 0.5
+
+::-webkit-scrollbar-track
+    background-color: #ecedee
+    opacity: 0.5
+
+input, textarea
+    outline: none
+    &:focus:required:invalid
+        border-color: red 
+    &:required:valid
+        border-color: green
+
+* 
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+    outline: none
+    font-family: $roboto
+    line-height: 1.65
+
+body 
+    font-size: $fontsize
+    min-height: 100vh
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+    overflow: hidden
+    transform: translateZ(0)
+    opacity: 0
+    transition: opacity 1s
+
+body.load
+    opacity: 1
