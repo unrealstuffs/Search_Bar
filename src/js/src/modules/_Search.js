@@ -21,6 +21,8 @@ export default class Search {
     sendQuery({text, engine}) {
         if(engine === 'yandex') {
             window.location.href = `https://yandex.ru/search/?text=${text}`
+        } else if(engine === 'google') {
+            window.location.href = `https://www.google.com/search?q=${text}`
         }
     }
 }
