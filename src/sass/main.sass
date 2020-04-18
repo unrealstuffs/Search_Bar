@@ -1,10 +1,5 @@
 @import config
 
-// TEMP STYLES
-
-.hide
-    display: none !important
-
 // COMMON STYLES
 
 #app
@@ -37,6 +32,8 @@
         background: url(../img/icons/colors.svg) center / contain no-repeat
     &-gallery
         background: url(../img/icons/gallery.svg) center / contain no-repeat
+    &-plus
+        background: url(../img/icons/plus.svg) center / contain no-repeat
 
 .x-radio
     display: flex
@@ -96,6 +93,12 @@ label.x-checkbox-label .x-checkbox-input:checked ~ .x-checkbox-box
 label.x-checkbox-label .x-checkbox-input:checked ~ .x-checkbox-box .x-checkbox-circle
     background-color: $accent
     left: 14px
+
+button
+    &:hover 
+        transition: all .3s
+        opacity: 0.8
+        cursor: pointer
 
 
 // MAIN SCREEN
@@ -202,14 +205,14 @@ label.x-checkbox-label .x-checkbox-input:checked ~ .x-checkbox-box .x-checkbox-c
     &-view
         height: calc( 100vh - 50px - 60px )
         overflow: auto
-        > div 
-            position: absolute
-            visibility: hidden
-            &.a
-                position: static
-                visibility: visible
+        > div
+            display: none
+
+// GENERAL SETTINGS STYLES
 
 .general-settings-view
+    &.a
+        display: block
     .container
         width: 60%
         margin: 0 auto
@@ -247,12 +250,15 @@ label.x-checkbox-label .x-checkbox-input:checked ~ .x-checkbox-box .x-checkbox-c
         .x-radio
             margin-left: 40px
 
+// WALLPAPER SETTINGS STYLES
+
 .wp-settings-view
-    display: flex
-    height: 100%
+    &.a
+        display: flex
+        height: 100%
     .left-part.wp-menu
         position: relative
-        width: 40%
+        width: 30%
         border-right: 1px solid #ececec
         padding: 30px 25px 0 40px
         .wp-menu-item
@@ -282,9 +288,15 @@ label.x-checkbox-label .x-checkbox-input:checked ~ .x-checkbox-box .x-checkbox-c
             height: 25px
             margin-right: 10px
     .right-part.wp-view
-        width: 60%
+        width: 70%
         position: relative
         padding: 20px 30px
+        > div 
+            position: absolute
+            visibility: hidden
+            &.a
+                position: static
+                visibility: visible
     .previews
         display: flex
         flex-wrap: wrap
@@ -292,6 +304,8 @@ label.x-checkbox-label .x-checkbox-input:checked ~ .x-checkbox-box .x-checkbox-c
             width: 20%
             padding: 0 5px 5px 0
             overflow: hidden
+            &:nth-child(5n)
+                padding-right: 0
         .preview
             display: flex
             align-items: center
@@ -302,6 +316,10 @@ label.x-checkbox-label .x-checkbox-input:checked ~ .x-checkbox-box .x-checkbox-c
             height: 120px
             position: relative
             overflow: hidden
+            &:hover
+                transition: all .3s
+                opacity: 0.8
+                cursor: pointer
             .category-name
                 display: block
                 width: 100%
@@ -332,3 +350,179 @@ label.x-checkbox-label .x-checkbox-input:checked ~ .x-checkbox-box .x-checkbox-c
             border: none
             background-color: transparent
             color: #666666
+
+.colors-view
+    .input-box
+        display: flex
+        align-items: center
+        background: #ffffff
+        border: 1px solid #ced3d9
+        margin-bottom: 20px
+        input[type="text"]
+            width: 100%
+            height: 30px
+            line-height: 30px
+            padding: 0 10px
+            border: none
+            background-color: transparent
+            color: #666666
+        input[type="color"]
+            width: 50px
+            height: 20px
+            margin-right: 10px
+            vertical-align: middle
+            -webkit-appearance: none
+            border: 1px solid #ced3d9
+            cursor: pointer
+            &::-webkit-color-swatch-wrapper
+                padding: 0
+            &::-webkit-color-swatch
+                border: none
+        .add-color-btn
+            background: $accent
+            border: none
+            height: 32px
+            padding: 0 20px
+            color: #ffffff
+            font-size: 12px
+            margin: -2px -1px
+
+.upload-view
+    .add-img-area
+        display: block
+        padding: 60px 20px
+        margin-bottom: 10px
+        background: #ffffff
+        color: #a9b2bf
+        border: 1px solid #ced3d9
+        text-align: center
+        position: relative
+        input[type="file"]
+            display: block
+            position: absolute
+            opacity: 0
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            cursor: pointer
+        .text
+            font-size: 14px
+            line-height: 1.5
+            &:first-of-type
+                margin-bottom: 15px
+        .blue-text
+            color: $accent
+    .add-img-desc
+        font-size: 12px
+        text-align: right
+        color: #a9b2bf
+        margin-bottom: 20px
+
+// APPS SETTINGS STYLES
+
+.apps-settings-view
+    padding: 40px 0
+    display: flex
+    flex-wrap: wrap
+    &.a
+        display: flex
+    .apps-item
+        width: 130px
+        text-align: center
+        color: #666666
+        margin-bottom: 30px
+        user-select: none
+        &:hover
+            transition: all .3s
+            opacity: 0.8
+            cursor: pointer
+    input
+        display: none
+        &:checked ~ .app-uncheck
+            display: none
+        &:checked ~ .app-check
+            display: inline-flex
+    .app-icon
+        display: inline-block
+        width: 60px
+        height: 60px
+        margin-bottom: 10px
+        background-size: contain
+        background-position: center
+        background-repeat: no-repeat
+    .app-title
+        font-size: 13px
+        margin-bottom: 10px
+    .check-state
+        display: inline-flex
+        align-items: center
+        justify-content: center
+        border-radius: 50%
+        width: 20px
+        height: 20px
+        .icon
+            width: 12px
+            height: 12px
+    .app-uncheck
+        display: inline-flex
+        background: #d3d3d3
+    .app-check
+        display: none
+        background: #0dc97b
+
+// MEDIA QUERIES STYLES
+
+@media screen and ( max-width: 768px )
+    .wp-settings-view
+        flex-direction: column
+        .left-part.wp-menu, .right-part.wp-view
+            width: 100%
+        .left-part.wp-menu
+            display: flex
+            justify-content: space-around
+            padding: 30px 25px 0 25px
+        .previews
+            .preview-box
+                width: 33.3%
+                &:nth-child(5n)
+                    padding-right: 5px
+                &:nth-child(3n)
+                    padding-right: 0
+    .general-settings-view
+        .radio-boxes
+            flex-direction: column
+            align-items: start
+@media screen and ( max-width: 480px )
+    .wp-settings-view
+        .left-part.wp-menu
+            justify-content: space-between
+            .wp-menu-item
+                flex-direction: column
+                &-text 
+                    font-size: 12px
+        .previews
+            .preview-box
+                width: 50%
+                &:nth-child(5n), &:nth-child(3n)
+                    padding-right: 5px
+                &:nth-child(2n)
+                    padding-right: 0
+    .settings-modal-head
+        align-items: start
+        height: auto
+    .settings-modal-menu
+        flex-direction: column
+        align-items: start
+        width: 100%
+        &-item
+            margin: 7px 0
+    .settings-modal-view
+        height: calc( 100vh - 50px - 152px )
+    .general-settings-view
+        .setting-block-title
+            margin: 10px 0 10px
+        .container
+            width: 80%
+        .setting-item
+            padding: 0 10px

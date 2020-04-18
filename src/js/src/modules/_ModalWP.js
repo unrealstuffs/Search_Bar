@@ -1,9 +1,9 @@
 // Модуль для работы с вкладками в модальном окне
 export default class ModalTabs {
     constructor() {
-        this.tabList = document.querySelectorAll('.settings-modal-menu-item');
-        this.contentList = document.querySelectorAll('.settings-modal-view > div');
-        this.menu = document.querySelector('.settings-modal-menu');
+        this.tabList = document.querySelectorAll('.wp-menu-item');
+        this.contentList = document.querySelectorAll('.wp-view > div');
+        this.menu = document.querySelector('.wp-menu');
 
         this.event();
         this.setIndex();
@@ -19,7 +19,7 @@ export default class ModalTabs {
         this.removePrev();
 
         const index = item.getAttribute('data-index');
-        const content = document.querySelector('.settings-modal-view > div[data-index="'+index+'"]');
+        const content = document.querySelector('.wp-view > div[data-index="'+index+'"]');
 
         item.classList.add('a');
         content.classList.add('a');

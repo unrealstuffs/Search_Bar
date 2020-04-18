@@ -1,13 +1,14 @@
+// Модуль для работы формы поиска
 export default class Search {
     constructor() {
-        this.searchBar = document.querySelector('.search-bar');
-        this.searchBarInput = document.querySelector('.search-bar-input');
-        this.searchBarEngine = document.querySelector('.search-bar-engine')
+        this.searchBar = document.querySelector('.search-bar'); // Форма
+        this.searchBarInput = document.querySelector('.search-bar-input'); // Инпут в форме
+        this.searchBarEngine = document.querySelector('.search-bar-engine') // Скрытый инпут в форме
 
         this.event();
     }
 
-    // Listen for submit form and call method sendQuery
+    // Прослушиваем форму и вызываем метод отправки запроса
     event() {
         this.searchBar.addEventListener('submit', e => {
             e.preventDefault();
@@ -17,7 +18,7 @@ export default class Search {
         })
     }
 
-    // Open search engine
+    // Проверяем значение скрытой формы и открываем выбранный поисковик
     sendQuery({text, engine}) {
         if(engine === 'yandex') {
             window.location.href = `https://yandex.ru/search/?text=${text}`
