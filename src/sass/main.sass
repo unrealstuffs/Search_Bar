@@ -128,11 +128,9 @@ button
     &.light
         background: rgba(#fff, 0.8)
     &.dark
-        background: rgba(#000, 0.5)
+        background: rgba(#000, 0.8)
         input
             color: #ffffff
-        svg
-            fill: #ffffff
     &.rounded-searchbar
         border-radius: 45px
     .icon
@@ -291,12 +289,10 @@ button
         width: 70%
         position: relative
         padding: 20px 30px
-        > div 
-            position: absolute
-            visibility: hidden
+        > div
+            display: none
             &.a
-                position: static
-                visibility: visible
+                display: block
     .previews
         display: flex
         flex-wrap: wrap

@@ -187,11 +187,9 @@ button:hover {
   .search-bar.light {
     background: rgba(255, 255, 255, 0.8); }
   .search-bar.dark {
-    background: rgba(0, 0, 0, 0.5); }
+    background: rgba(0, 0, 0, 0.8); }
     .search-bar.dark input {
       color: #ffffff; }
-    .search-bar.dark svg {
-      fill: #ffffff; }
   .search-bar.rounded-searchbar {
     border-radius: 45px; }
   .search-bar .icon {
@@ -352,11 +350,9 @@ button:hover {
   position: relative;
   padding: 20px 30px; }
   .wp-settings-view .right-part.wp-view > div {
-    position: absolute;
-    visibility: hidden; }
+    display: none; }
     .wp-settings-view .right-part.wp-view > div.a {
-      position: static;
-      visibility: visible; }
+      display: block; }
 
 .wp-settings-view .previews {
   display: flex;
