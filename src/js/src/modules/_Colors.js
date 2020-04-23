@@ -17,14 +17,24 @@ export default class Colors {
             this.inputText.value = this.inputColor.value
         })
         this.inputText.addEventListener('change', () => {
-            this.addColor(this.inputText.value);
+            if(this.isValidForm(this.inputText.value)) {
+                this.inputText.parentElement.classList.remove('error');
+                this.addColor(this.inputText.value);
+            } else {
+                this.inputText.parentElement.classList.add('error');
+            }
         })
         this.inputText.addEventListener('focus', () => {
             this.inputText.value = '#'
         })
-        this.addColorBtn.addEventListener('click', () => {
-            this.addColor(this.inputText.value);
-        })
+    }
+
+    isValidForm(data) {
+        if(data.match(/^#[0-9A-Fa-f]{6}/)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     setColorHandler() {
