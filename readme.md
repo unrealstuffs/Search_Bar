@@ -1,18 +1,8 @@
-<h1>GWTemplate</h1>
-<p>startup template, based on Gulp and Webpack</p>
+<h1>Search Bar</h1>
+<p>Поисковая строка с возможностью кастомизации</p>
 
-<h2>How to use GWTemplate</h2>
-<pre>git clone https://github.com/unrealstuffs/gulp-webp-starter.git</pre>
+<h2>Адрес</h2>
+<pre>https://unrealstuffs.github.io/search-bar/</pre>
 
-<ol>
-    <li>Clone or download template from GitHub</li>
-    <li>Install Node Modules: <strong>npm i</strong></li>
-    <li>Run: <strong>gulp</strong></li>
-</ol>
-
-<h2>Gulp Tasks</h2>
-
-<ul>
-    <li><strong>gulp</strong>: run default gulp task in development mode</li>
-    <li><strong>gulp prod</strong>: run task in production mode(minify css, js)</li>
-</ul>
+<h2>О приложении</h2>
+<p>Приложение делалось с помощью модульной структуры на основе того, что модули никак не взаимодействуют друг с другом, поэтому возникали некоторые сложности при разработке, которые решались с помощью костылей, не всегда разумных и универсальных. Подробнее можно увидеть в отдельных модулях в комментариях</p>

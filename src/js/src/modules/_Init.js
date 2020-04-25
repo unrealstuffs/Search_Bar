@@ -1,3 +1,4 @@
+// Модуль в котором выполняются какие то функции при загрузке страницы
 export default class Init {
     constructor() {
         this.body = document.querySelector('body');
@@ -8,9 +9,10 @@ export default class Init {
     }
 
     render() {
-        this.body.classList.add('load');
+        this.body.classList.add('load'); // Добавляем класс чтобы появился красивый эффект при загрузке
     }
 
+    // Получаем фоновое изображение или цвет и запускаем метод установки
     getBackground() {
         let background;
 
@@ -20,8 +22,9 @@ export default class Init {
         }
     }
 
+    // Устанавливаем изображение или цвет
     setBackground(value) {
-        if(value[0] === 'r') {
+        if(value[0] === 'r') { // С помощью нейронных сетей определяем, цвет или изображение пришло в качестве параметра
             this.appBackground.style.background = value;
         } else {
             this.appBackground.style.background = `url(${value}) center center / cover no-repeat`;

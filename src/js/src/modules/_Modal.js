@@ -1,3 +1,5 @@
+// Модальное окошко
+
 export default class Modal {
     constructor() {
         this.settingsModal = document.querySelector('.settings-modal');
@@ -7,6 +9,7 @@ export default class Modal {
         this.event();
     }
 
+    // Отслеживаем ивенты нажатия на кнопки открытия и закрытия
     event() {
         this.showSettingsBtn.addEventListener('click', () => {
             this.showSettingsModal()
@@ -16,10 +19,12 @@ export default class Modal {
         })
     }
 
+    // Показываем окон
     showSettingsModal() {
         this.settingsModal.classList.add('show');
     }
 
+    // Убираем окно
     closeSettingsModal() {
         this.settingsModal.classList.remove('show');
     }

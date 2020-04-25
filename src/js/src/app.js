@@ -1,3 +1,5 @@
+// Связующее звено всех модулей, ничего интересного
+
 import Init from './modules/_Init'
 import Search from './modules/_Search'
 import Modal from './modules/_Modal'
