@@ -21,7 +21,7 @@ export default class Apps {
                     this.appsContainer.innerHTML += `
                         <label class="apps-item">
                             <input type="checkbox" ${this.isChecked(app.name) ? 'checked' : ''}>
-                            <div class="app-icon" style="background-image: url(../img/${app.icon});"></div>
+                            <div class="app-icon" style="background-image: url(img/${app.icon});"></div>
                             <div class="app-title">${app.name}</div>
                             <div class="check-state app-check">
                                 <div class="icon icon-check"></div>
@@ -49,7 +49,7 @@ export default class Apps {
                     if(appsList.indexOf(app.name) !== -1) { // Проверяем, есть ли название итерируемого приложения в массиве отмеченных
                         this.bookmarksContainer.innerHTML += `
                             <a class="pinned-bookmarks-item" href="${app.url}">
-                                <div class="pinned-bookmarks-img" style="background-image: url(../img/${app.icon});"></div>
+                                <div class="pinned-bookmarks-img" style="background-image: url(img/${app.icon});"></div>
                                 <div class="pinned-bookmarks-title">${app.name}</div>
                             </a>
                         `
