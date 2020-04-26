@@ -98,6 +98,8 @@ body.load {
     background: url(../img/icons/gallery.svg) center/contain no-repeat; }
   .icon-plus {
     background: url(../img/icons/plus.svg) center/contain no-repeat; }
+  .icon-check {
+    background: url(../img/icons/check.svg) center/contain no-repeat; }
 
 .x-radio {
   display: flex;
@@ -166,7 +168,7 @@ button:hover {
 .main-box {
   position: relative;
   width: 45%;
-  margin: 0 auto; }
+  margin: 200px auto 0; }
   @media screen and (max-width: 768px) {
     .main-box {
       width: 70%; } }
@@ -197,6 +199,53 @@ button:hover {
     @media screen and (max-width: 768px) {
       .search-bar .icon {
         margin-left: 10px; } }
+
+.pinned-bookmarks-box {
+  height: 240px;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: auto;
+  justify-content: center; }
+  .pinned-bookmarks-box.light .pinned-bookmarks-item .pinned-bookmarks-title {
+    color: #ffffff; }
+  .pinned-bookmarks-box .pinned-bookmarks-item {
+    width: 120px;
+    height: 120px;
+    border-radius: 4px;
+    transition: all .3s;
+    padding: 10px 5px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    user-select: none; }
+    .pinned-bookmarks-box .pinned-bookmarks-item:hover {
+      opacity: 0.8;
+      cursor: pointer; }
+    .pinned-bookmarks-box .pinned-bookmarks-item .pinned-bookmarks-img {
+      width: 70px;
+      height: 70px;
+      border-radius: 24%;
+      background: #ffffff;
+      background-position: center;
+      background-size: 70%;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px; }
+    .pinned-bookmarks-box .pinned-bookmarks-item .pinned-bookmarks-title {
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 0 5px;
+      white-space: nowrap;
+      color: #000000;
+      font-size: 12px;
+      text-decoration: none;
+      text-align: center; }
 
 .show-settings-btn {
   position: absolute;
@@ -479,11 +528,12 @@ button:hover {
 .apps-settings-view {
   padding: 40px 0;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap; }
   .apps-settings-view.a {
     display: flex; }
   .apps-settings-view .apps-item {
-    width: 130px;
+    width: 100px;
     text-align: center;
     color: #666666;
     margin-bottom: 30px;

@@ -9,6 +9,7 @@ import Settings from './modules/_Settings'
 import Photos from './modules/_Photos'
 import Colors from './modules/_Colors'
 import Upload from './modules/_Upload'
+import Apps from './modules/_Apps'
 
 class App {
     constructor() {
@@ -21,6 +22,7 @@ class App {
         this.photos = new Photos();
         this.colors = new Colors();
         this.upload = new Upload();
+        this.apps = new Apps();
     }
 }
 

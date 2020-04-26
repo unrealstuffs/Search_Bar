@@ -8,10 +8,12 @@ export default class Settings {
         this.setSearchEngine = document.querySelector('.search-engine');
         this.setSearchBarColor = document.querySelectorAll('.search-bar-color');
         this.setRoundedSearchBar = document.querySelector('.x-checkbox-input');
+        this.setPinTitleColor = document.querySelectorAll('.pin-title-color');
         
         // Секция элементов которые будут изменяться из настроек
         this.searchBarEngine = document.querySelector('.search-bar-engine');
         this.searchBarForm = document.querySelector('.search-bar');
+        this.bookmarksBox = document.querySelector('.pinned-bookmarks-box');
 
         // Вызываем метод применения стандартных настроек
         this.setDefaultSettings();
@@ -34,6 +36,11 @@ export default class Settings {
         this.setRoundedSearchBar.addEventListener('change', () => {
             this.saveSettings(this.setRoundedSearchBar.checked, "roundedSearchBar"); // В качестве второго параметра передаем название настройки
         });
+        this.setPinTitleColor.forEach(elem => {
+            elem.addEventListener('change', () => {
+                this.saveSettings(elem.value, "pinTitleColor");
+            })
+        })
     }
 
     // Если запуск первый, то ставим дефолтные настройки, иначе ничего не делаем
@@ -42,7 +49,8 @@ export default class Settings {
             let settings = {
                 "searchEngine": "yandex",
                 "searchBarColor": "light",
-                "roundedSearchBar": false
+                "roundedSearchBar": false,
+                "pinTitleColor": "light"
             };
             localStorage.setItem('settings', JSON.stringify(settings));
         } else {
@@ -79,6 +87,11 @@ export default class Settings {
                 settings[option] = element
                 localStorage.setItem('settings', JSON.stringify(settings));
                 this.applySettings('roundedSearchBar');
+                break;
+            case 'pinTitleColor':
+                settings[option] = element
+                localStorage.setItem('settings', JSON.stringify(settings));
+                this.applySettings('pinTitleColor');
                 break;
         }
     }
@@ -123,6 +136,19 @@ export default class Settings {
                     this.setRoundedSearchBar.checked = false; // Выключаем чекбокс
                 }
                 break;
+            case 'pinTitleColor':
+                if(settings.pinTitleColor === 'light') {
+                    this.bookmarksBox.classList.remove('dark') // Не знаю зачем это, но без этой строчки не работает
+                    this.bookmarksBox.classList.add(settings.pinTitleColor); // Добавляем выбранный класс
+                    this.setPinTitleColor[0].checked = false; // Ставим значения радио кнопок
+                    this.setPinTitleColor[1].checked = true;
+                } else { // Здесь делаем аналогичные действия, но наоборот
+                    this.bookmarksBox.classList.remove('light');
+                    this.bookmarksBox.classList.add(settings.pinTitleColor);
+                    this.setPinTitleColor[0].checked = true;
+                    this.setPinTitleColor[1].checked = false;
+                }
+                break;
             case 'default': // Стандартный случай, запускается только при загрузке страницы, здесь собраны все действия что были выше. Ужасное решение
                 this.searchBarEngine.value = settings.searchEngine;
                 this.setSearchEngine.value = settings.searchEngine;
@@ -145,6 +171,18 @@ export default class Settings {
                 } else {
                     this.searchBarForm.classList.remove('rounded-searchbar');
                     this.setRoundedSearchBar.checked = false;
+                }
+
+                if(settings.pinTitleColor === 'light') {
+                    this.bookmarksBox.classList.remove('dark') // Не знаю зачем это, но без этой строчки не работает
+                    this.bookmarksBox.classList.add(settings.pinTitleColor); // Добавляем выбранный класс
+                    this.setPinTitleColor[0].checked = false; // Ставим значения радио кнопок
+                    this.setPinTitleColor[1].checked = true;
+                } else { // Здесь делаем аналогичные действия, но наоборот
+                    this.bookmarksBox.classList.remove('light');
+                    this.bookmarksBox.classList.add(settings.pinTitleColor);
+                    this.setPinTitleColor[0].checked = true;
+                    this.setPinTitleColor[1].checked = false;
                 }
                 break;
         }

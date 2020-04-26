@@ -20,6 +20,7 @@
                 <input class="search-bar-engine" type="hidden" value="yandex">
                 <input class="search-bar-input" type="text">
             </form>
+            <div class="pinned-bookmarks-box light"></div>
         </div>
 
         <div class="show-settings-btn">
@@ -36,6 +37,10 @@
                     <div class="settings-modal-menu-item">
                         <div class="icon icon-landscape"></div>
                         <div class="settings-modal-menu-item-text">Фон</div>
+                    </div>
+                    <div class="settings-modal-menu-item">
+                        <div class="icon icon-apps"></div>
+                        <div class="settings-modal-menu-item-text">Приложения</div>
                     </div>
                 </div>
                 <div class="icon icon-close"></div>
@@ -81,6 +86,25 @@
                                 </label>
                             </div>
 
+                        </div>
+
+                        <div class="setting-block-title">Закладки</div>
+                        <div class="setting-block">
+                            <div class="setting-item">
+                                <div class="setting-item-title">Цвет текста закладки</div>
+                                <div class="radio-boxes">
+                                    <label class="x-radio">
+                                        <input type="radio" name="pinTitleColor" value="dark" class="pin-title-color">
+                                        <div class="x-radio-box"></div>
+                                        <div class="x-radio-title">Темный</div>
+                                    </label>
+                                    <label class="x-radio">
+                                        <input type="radio" name="pinTitleColor" value="light" class="pin-title-color">
+                                        <div class="x-radio-box"></div>
+                                        <div class="x-radio-title">Светлый</div>
+                                    </label>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="setting-block-title">О приложении</div>
@@ -162,85 +186,7 @@
                     </div>
                 </div>
 
-                <!-- <div class="apps-settings-view">
-                    <div class="apps-item">
-                        <input type="checkbox">
-                        <div class="app-icon" style="background-image: url(https://lh3.googleusercontent.com/Cy36NdpK-TmWjWQO94duQx5ZIh9-C7X7-rMmEkpuOB4Z4m82CPAxj2PqLwRJ9uq30PQVRpzzSjrm_a_YZLHVy7p_oXUDDBnORa3Tww=h120);"></div>
-                        <div class="app-title">Google Fonts</div>
-                        <div class="check-state app-check">
-                            <div class="icon icon-check"></div>
-                        </div>
-                        <div class="check-state app-uncheck">
-                            <div class="icon icon-plus"></div>
-                        </div>
-                    </div>
-                    <div class="apps-item">
-                        <input type="checkbox">
-                        <div class="app-icon" style="background-image: url(https://lh3.googleusercontent.com/Cy36NdpK-TmWjWQO94duQx5ZIh9-C7X7-rMmEkpuOB4Z4m82CPAxj2PqLwRJ9uq30PQVRpzzSjrm_a_YZLHVy7p_oXUDDBnORa3Tww=h120);"></div>
-                        <div class="app-title">Google Fonts</div>
-                        <div class="check-state app-check">
-                            <div class="icon icon-check"></div>
-                        </div>
-                        <div class="check-state app-uncheck">
-                            <div class="icon icon-plus"></div>
-                        </div>
-                    </div>
-                    <div class="apps-item">
-                        <input type="checkbox">
-                        <div class="app-icon" style="background-image: url(https://lh3.googleusercontent.com/Cy36NdpK-TmWjWQO94duQx5ZIh9-C7X7-rMmEkpuOB4Z4m82CPAxj2PqLwRJ9uq30PQVRpzzSjrm_a_YZLHVy7p_oXUDDBnORa3Tww=h120);"></div>
-                        <div class="app-title">Google Fonts</div>
-                        <div class="check-state app-check">
-                            <div class="icon icon-check"></div>
-                        </div>
-                        <div class="check-state app-uncheck">
-                            <div class="icon icon-plus"></div>
-                        </div>
-                    </div>
-                    <div class="apps-item">
-                        <input type="checkbox">
-                        <div class="app-icon" style="background-image: url(https://lh3.googleusercontent.com/Cy36NdpK-TmWjWQO94duQx5ZIh9-C7X7-rMmEkpuOB4Z4m82CPAxj2PqLwRJ9uq30PQVRpzzSjrm_a_YZLHVy7p_oXUDDBnORa3Tww=h120);"></div>
-                        <div class="app-title">Google Fonts</div>
-                        <div class="check-state app-check">
-                            <div class="icon icon-check"></div>
-                        </div>
-                        <div class="check-state app-uncheck">
-                            <div class="icon icon-plus"></div>
-                        </div>
-                    </div>
-                    <div class="apps-item">
-                        <input type="checkbox">
-                        <div class="app-icon" style="background-image: url(https://lh3.googleusercontent.com/Cy36NdpK-TmWjWQO94duQx5ZIh9-C7X7-rMmEkpuOB4Z4m82CPAxj2PqLwRJ9uq30PQVRpzzSjrm_a_YZLHVy7p_oXUDDBnORa3Tww=h120);"></div>
-                        <div class="app-title">Google Fonts</div>
-                        <div class="check-state app-check">
-                            <div class="icon icon-check"></div>
-                        </div>
-                        <div class="check-state app-uncheck">
-                            <div class="icon icon-plus"></div>
-                        </div>
-                    </div>
-                    <div class="apps-item">
-                        <input type="checkbox">
-                        <div class="app-icon" style="background-image: url(https://lh3.googleusercontent.com/Cy36NdpK-TmWjWQO94duQx5ZIh9-C7X7-rMmEkpuOB4Z4m82CPAxj2PqLwRJ9uq30PQVRpzzSjrm_a_YZLHVy7p_oXUDDBnORa3Tww=h120);"></div>
-                        <div class="app-title">Google Fonts</div>
-                        <div class="check-state app-check">
-                            <div class="icon icon-check"></div>
-                        </div>
-                        <div class="check-state app-uncheck">
-                            <div class="icon icon-plus"></div>
-                        </div>
-                    </div>
-                    <div class="apps-item">
-                        <input type="checkbox">
-                        <div class="app-icon" style="background-image: url(https://lh3.googleusercontent.com/Cy36NdpK-TmWjWQO94duQx5ZIh9-C7X7-rMmEkpuOB4Z4m82CPAxj2PqLwRJ9uq30PQVRpzzSjrm_a_YZLHVy7p_oXUDDBnORa3Tww=h120);"></div>
-                        <div class="app-title">Google Fonts</div>
-                        <div class="check-state app-check">
-                            <div class="icon icon-check"></div>
-                        </div>
-                        <div class="check-state app-uncheck">
-                            <div class="icon icon-plus"></div>
-                        </div>
-                    </div>
-                </div> -->
+                <div class="apps-settings-view"></div>
             </div>
 
         </div>

@@ -34,6 +34,8 @@
         background: url(../img/icons/gallery.svg) center / contain no-repeat
     &-plus
         background: url(../img/icons/plus.svg) center / contain no-repeat
+    &-check
+        background: url(../img/icons/check.svg) center / contain no-repeat
 
 .x-radio
     display: flex
@@ -107,7 +109,7 @@ button
     position: relative
     // left: calc( 50% - 300px )
     width: 45%
-    margin: 0 auto
+    margin: 200px auto 0
     @media screen and ( max-width: 768px )
         width: 70%
         
@@ -137,6 +139,55 @@ button
         width: 45px
         @media screen and ( max-width: 768px )
             margin-left: 10px
+
+.pinned-bookmarks-box
+    height: 240px
+    display: flex
+    flex-wrap: wrap
+    position: relative
+    overflow: auto
+    justify-content: center
+    &.light
+        .pinned-bookmarks-item
+            .pinned-bookmarks-title
+                color: #ffffff
+    .pinned-bookmarks-item
+        width: 120px  
+        height: 120px
+        border-radius: 4px
+        transition: all .3s
+        padding: 10px 5px 0
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        position: relative
+        user-select: none
+        &:hover 
+            opacity: 0.8
+            cursor: pointer
+        .pinned-bookmarks-img
+            width: 70px
+            height: 70px
+            border-radius: 24%
+            background: #ffffff
+            background-position: center
+            background-size: 70%
+            background-repeat: no-repeat
+            display: flex
+            align-items: center
+            justify-content: center
+            margin-bottom: 10px
+        .pinned-bookmarks-title
+            width: 100%
+            overflow: hidden
+            text-overflow: ellipsis
+            padding: 0 5px
+            white-space: nowrap
+            color: #000000
+            font-size: 12px
+            text-decoration: none
+            text-align: center
 
 .show-settings-btn
     position: absolute
@@ -422,11 +473,12 @@ button
 .apps-settings-view
     padding: 40px 0
     display: flex
+    justify-content: center
     flex-wrap: wrap
     &.a
         display: flex
     .apps-item
-        width: 130px
+        width: 100px
         text-align: center
         color: #666666
         margin-bottom: 30px

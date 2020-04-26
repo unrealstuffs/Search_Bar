@@ -63,11 +63,14 @@ gulp.task("watch", () => {
 gulp.task("build", gulp.parallel("js", "sass"));
 
 gulp.task("prod", () => {
+    gulp.src("./src/**/*.{html,woff2,txt,json,jpg,jpeg,png,webp,svg,ico}")
+        .pipe(gulp.dest("./prod"));
+
     gulp.src("./src/sass/main.sass")
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss([autoprefixer()]))
         .pipe(cleanCSS())
-        .pipe(gulp.dest("./src/css"));
+        .pipe(gulp.dest("./prod/css"));
 
     return gulp.src("./src/js/src/app.js")
         .pipe(webpack({
@@ -96,7 +99,7 @@ gulp.task("prod", () => {
                 ]
             }
         }))
-        .pipe(gulp.dest("./src/js"));
+        .pipe(gulp.dest("./prod/js"));
 });
 
 gulp.task("default", gulp.parallel("watch", "build"));
