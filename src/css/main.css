@@ -220,7 +220,8 @@ button:hover {
     align-items: center;
     justify-content: center;
     position: relative;
-    user-select: none; }
+    user-select: none;
+    text-decoration: none; }
     .pinned-bookmarks-box .pinned-bookmarks-item:hover {
       opacity: 0.8;
       cursor: pointer; }
